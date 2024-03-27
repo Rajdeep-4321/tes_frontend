@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Login from './Login';
+import Sidebar from './layout/ExploreMarkets';
+import table from './layout/screen/Profile'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Kyc from './layout/screen/Kyc';
+import Profile_Second from './layout/screen/Profile_Second';
+import AuthService from './services/Auth';
+import ExploreMarkets from './layout/ExploreMarkets';
+import Dashboard from '../src/layout/Dashboard';
+import Portfolio from '../src/layout/Portfolio';
+import WatchList from './layout/WatchList';
+import AllOrders from './layout/AllOrders';
 
 function App() {
+
+  const userData = AuthService.getCurrentUser();
+  if(!userData){
+    return (
+      <>
+          <BrowserRouter>
+          <Routes>
+            <Route path='*' Component={Login}/>
+          </Routes>
+          </BrowserRouter>
+      </>
+    )
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+        <BrowserRouter>
+        <Routes>
+          {/* <Route path='/' Component={Login}/> */}
+          <Route path='/' Component={Sidebar}/>
+
+          <Route path='profile' Component={ExploreMarkets}/>
+          <Route path='dashboard' Component={Dashboard}/>
+          <Route path='all-orders' Component={AllOrders}/>
+          <Route path='portfolio' Component={Portfolio}/>
+          <Route path='watchlist' Component={WatchList}/>
+
+          <Route path='explore-market' Component={ExploreMarkets}/>
+
+
+
+          
+          <Route path='table' Component={table}/>
+          <Route path='kyc' Component={Kyc}/>
+          <Route path='profilesecond' Component={Profile_Second}/>
+        </Routes>
+        </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App

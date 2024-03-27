@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.kycbody {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.kycinpbg {
+  height: 700px;
+  width: 550px;
+  background-color: #FFFFFF;
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.kycheader {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.kyctext h1 {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  text-align: center;
+  color: #000000;
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+.kyctext p {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: #6D717A;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+
+
+.kycinpfield {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.kycinpfield h1 {
+  font-size: 12px;
+  text-align: start;
+  margin-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.kycinpfield input {
+  height: 40px;
+  width: 380px;
+  border-radius: 46px;
+  border: 1px solid #6D717A;
+  outline: none;
+  padding-left: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.uploadinp {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.uploadinp input {
+  height: 40px;
+  width: 230px;
+  border-radius: 46px;
+  border: 1px solid #6D717A;
+  outline: none;
+  padding: 0px 20px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.uploadinp button {
+  border: 2px solid black;
+  height: 40px;
+  width: 120px;
+  border-radius: 46px;
+  background-color: white;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  text-align: center;
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.maximumdiv {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.maximumdiv div input {
+  width: 175px;
+  display: flex;
+
+}
+
+.kycbottomsection {
+  margin-top: 50px;
+}
+
+.kycbottomsection button {
+  width: 400px;
+  height: 42px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+
+}
+.kycbottomsection a{
+  text-decoration: none;
+}
+
+.kycbottomsection h1 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 16px;
+  text-align: center;
+  color: #000000;
+  font-weight: 600;
+  margin-top: 20px;
+}
