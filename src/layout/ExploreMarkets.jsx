@@ -1,41 +1,47 @@
-import React, { useState } from 'react'
-import './Sidebar.css'
-import logo from '../assets/sidebarlogo.svg'
-import menuicon from '../assets/menuicon.svg'
-import notification from '../assets/notification.svg'
-import profile from '../assets/profile.svg'
-import { NavLink } from 'react-router-dom'
-import Profile from './screen/Profile'
-import Kyc from './screen/Kyc'
-import Profile_Second from './screen/Profile_Second'
-import AuthService from '../services/Auth'
-import Header from './components/header'
-import Sidebar from './components/sidebar'
-
+import React, { useState } from "react";
+import "./Sidebar.css";
+import logo from "../assets/sidebarlogo.svg";
+import menuicon from "../assets/menuicon.svg";
+import notification from "../assets/notification.svg";
+import profile from "../assets/profile.svg";
+import { NavLink } from "react-router-dom";
+import Profile from "./screen/Profile";
+import Kyc from "./screen/Kyc";
+import Profile_Second from "./screen/Profile_Second";
+import AuthService from "../services/Auth";
+import Header from "./components/header";
+import Sidebar from "./components/sidebar";
 
 const ExploreMarkets = () => {
-    const [darkmode, setDarkmode] = useState(false);
-    const [kyc, setKyc] = useState(true);
-    const [isClicked, setClicked] = useState(false);
+  const [darkmode, setDarkmode] = useState(false);
+  const [kyc, setKyc] = useState(true);
+  const [isClicked, setClicked] = useState(false);
 
+  return (
+    <>
+      <body className={darkmode ? "dark_mode" : "light_mode"}>
+        <div className={kyc ? "kychidden" : "kycshow"}>
+          <Kyc />
+        </div>
 
-    return (
-        <>
-            <body className={darkmode ? 'dark_mode' : 'light_mode'}>
-                <div  className={kyc ? 'kychidden' : 'kycshow'}><Kyc/></div>
+        <Header heading="Explore Market"></Header>
+        <div className="divisioncomp">
+          <Sidebar screenName="Explore Market" />
+          {/* <div className='ProfileCom'><Profile_Second/></div> */}
+          {!isClicked ? (
+            <div className="ProfileCom">
+              <Profile setKyc={setKyc} setClicked={setClicked} />
+            </div>
+          ) : (
+            <div className="ProfileCom">
+              <Profile_Second />
+            </div>
+          )}
+          {/* <div className='ProfileCom'  ><Profile setKyc={setKyc}/></div> */}
+        </div>
+      </body>
+    </>
+  );
+};
 
-                <Header heading= 'Explore Market'></Header>
-                <div className='divisioncomp'>
-                   <Sidebar screenName = 'Explore Market'/>
-                    {/* <div className='ProfileCom'><Profile_Second/></div> */}
-                    {!isClicked ? <div className='ProfileCom'  ><Profile setKyc={setKyc} setClicked = {setClicked}/></div> : <div className='ProfileCom'  ><Profile_Second/></div>}
-                    {/* <div className='ProfileCom'  ><Profile setKyc={setKyc}/></div> */}
-
-                </div>
-            </body>
-
-        </>
-    )
-}
-
-export default ExploreMarkets
+export default ExploreMarkets;
