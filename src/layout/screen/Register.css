@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    background-image: url("../../assets/background.png");
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    object-fit: cover;
+    background-attachment: fixed;
+}
+
+.bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Login {
+    height: 100vh;
+    width: 1310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Left {
+    height: 714px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.left_content {
+    width: 446px;
+    /* height: 366px; */
+}
+
+.text1 {
+    font-size: 60px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    width: 405px;
+    line-height: 76px;
+    margin-top: 45px;
+}
+
+.logo {
+    height: 88px;
+    width: 94px;
+}
+
+.subtext {
+    font-size: 30px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    width: 446px;
+    line-height: 38px;
+    height: 59px;
+    margin-top: 32px;
+}
+
+.rigth_content {
+    background-color: white;
+    height: 714px;
+    width: 606px;
+    border-radius: 34px;
+    padding: 56.05px, 64.05px, 56.05px, 64.05px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rightlogin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    margin-top: 58px;
+}
+
+.notamember {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    color: #6D717A;
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.registernow {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+
+.registernow:hover {
+    color: rgb(85, 121, 221);
+
+}
+
+.inputfield {
+    display: flex;
+    flex-direction: column;
+    width: 478px;
+    margin-top: 80px;
+    gap: 24px;
+}
+
+#email {
+    height: 54px;
+    border-radius: 46px;
+    border: 1px solid #6D717A;
+    outline: none;
+    padding: 0px 27px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#password {
+    height: 54px;
+    border-radius: 46px;
+    border: 1px solid #6D717A;
+    outline: none;
+    padding: 0px 27px;
+    font-weight: 500;
+    font-size: 15px;
+    width: 478px;
+    border: hidden;
+}
+
+.showHide {
+    cursor: pointer;
+    color: #6D717A;
+    margin-right: 24px;
+}
+
+.inputfield2 {
+    display: flex;
+    width: 478px;
+    border-radius: 46px;
+    border: 1px solid #6D717A;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox {
+    margin-top: 20px;
+    display: flex;
+    gap: 17px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#rememberMebox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 0.86px solid #6D717A;
+    color: white;
+}
+
+.rememberMe {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #6D717A;
+    line-height: 18px;
+}
+
+.btn {
+    width: 478px;
+    height: 61px;
+    border-radius: 50px;
+    background-color: black;
+    font-family: Poppins, sans-serif;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 18px;
+    font-weight: 600;
+    border: none;
+}
+
+.fogotpass {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #161616;
+    text-decoration: none;
+    line-height: 20px;
+    margin-top: 30px;
+}
+
+.icon {
+    margin-top: 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.iconimg{
+    cursor: pointer;
+}
+
+.signwith {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+    text-decoration: none;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.footer {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 80px;
+    margin-top: 100px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1500px) {
+    .Login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1210px;
+    }
+
+    .Left {
+        height: 514px;
+    }
+    .logo {
+        width: 74px;
+        height: 68px;
+    }
+    .text1 {
+        font-size: 50px;
+        line-height: 60px;
+        margin-top: 35px;
+        width: 340px;
+    }
+
+    .subtext {
+        font-size: 22px;
+        margin-top: 28px;
+        width: 300px;
+    }
+
+    .rigth_content {
+        height: 514px;
+        width: 406px;
+    }
+
+    .rightlogin {
+        margin-top: 28px;
+    }
+
+    .notamember {
+        margin-top: 10px;
+    }
+    .inputfield {
+        margin-top: 30px;
+
+    }
+
+    .inputfield {
+        display: flex;
+        flex-direction: column;
+        width: 278px;
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+
+    .inputfield2 {
+        display: flex;
+        width: 278px;
+    }
+
+    #email {
+        height: 40px;
+
+    }
+
+    #password {
+        height: 40px;
+
+    }
+    .checkbox {
+        margin-top: 15px;
+    }
+
+    #rememberMebox {
+        width: 15px;
+        height: 15px;
+    }
+
+    .btn {
+        width: 278px;
+        height: 40px;
+    }
+
+    .fogotpass {
+        margin-top: 15px;
+    }
+
+    .icon {
+        margin-top: 25px;
+    }
+
+    .footer {
+        margin-top: 0px;
+
+    }
+
+}
+
+@media only screen and (max-width:1250px) {
+
+    .Login {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width:950px) {
+
+    .Login {
+        width: 750px;
+        height: 100vh;
+    }
+
+
+    .logo {
+        width: 54px;
+        height: 48px;
+    }
+
+    .text1 {
+        font-size: 35px;
+        line-height: 40px;
+        margin-top: 25px;
+        width: 250px;
+    }
+
+    .subtext {
+        font-size: 17px;
+        margin-top: 28px;
+        width: 250px;
+        line-height: 30px;
+    }
+
+    .rigth_content {
+        height: 414px;
+        width: 306px;
+    }
+
+    .rightlogin {
+        margin-top: 18px;
+        font-size: 28px;
+    }
+
+    .notamember {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .registernow {
+        font-size: 14px;
+    }
+
+    .inputfield {
+        display: flex;
+        flex-direction: column;
+        width: 240px;
+        margin-top: 25px;
+    }
+
+    .inputfield2 {
+        display: flex;
+        width: 240px;
+    }
+
+    #email {
+        height: 35px;
+
+    }
+
+    #password {
+        height: 35px;
+        width: 160px;
+
+    }
+
+    .checkbox {
+        margin-top: 8px;
+    }
+
+    #rememberMebox {
+        width: 10px;
+        height: 10px;
+    }
+
+    .btn {
+        width: 240px;
+        height: 35px;
+        margin-top: 10px;
+
+    }
+
+    .fogotpass {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .icon {
+        margin-top: 25px; 
+    }
+
+    .iconimg{
+        height: 30px;
+    }
+
+    .signwith{
+        font-size: 14px;
+
+    }
+
+    .footer {
+        margin-top: 0px;
+
+    }
+}
+
+
+@media only screen and (max-width:770px) {
+    
+
+    .Login{
+        width: 550px;
+    }
+}
+
+
+@media only screen and (max-width:580px) {
+    
+    .Login{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .footer{
+        margin-top: 30px;
+    }
+}
