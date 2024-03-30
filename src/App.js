@@ -40,6 +40,7 @@ function App() {
           <Route path="all-orders" Component={AllOrders} />
           <Route path="portfolio" Component={Portfolio} />
           <Route path="watchlist" Component={WatchList} />
+          {/* <Route path="admin" Component={Admin} /> */}
 
           <Route path="explore-market" Component={ExploreMarkets} />
 

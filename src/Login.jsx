@@ -109,7 +109,7 @@ function Login() {
                     type="email"
                     name=""
                     id="email"
-                    placeholder="John.abc@gmail.com"
+                    placeholder="Email"
                     value={username}
                     onChange={onChangeUsername}
                     validations={[required]}
@@ -119,7 +119,7 @@ function Login() {
                       type={type}
                       name=""
                       id="password"
-                      placeholder="Password*"
+                      placeholder="Password"
                       value={password}
                       onChange={onChangePassword}
                       validations={[required]}
@@ -135,6 +135,7 @@ function Login() {
                 <label for="rememberMebox" className='rememberMe'>Remember me</label>
               </div> */}
                 <button className="btn">Sign in</button>
+
                 {error != "" && <div style={{ color: "red" }}>{error}</div>}
                 <a href="#" className="fogotpass">
                   Forgot password?

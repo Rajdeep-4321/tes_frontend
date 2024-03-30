@@ -143,15 +143,15 @@ const Profile = ({setKyc, setClicked}) => {
       };
 
 
-    return (
-        <>
-            {/* table header section */}
-            <div className='Head_screen'>
-                <div className='Head_screen_button'>
-                    <button className='shares'>Shares</button>
-                    <button className='Commodities'>Commodities</button>
-                    <button className='crypto'>Crypto</button>
-                </div>
+  return (
+    <>
+      {/* table header section */}
+      <div className="Head_screen">
+        <div className="Head_screen_button">
+          <button className="shares">Shares</button>
+          <button className="Commodities">Commodities</button>
+          <button className="crypto">Crypto</button>
+        </div>
 
                 <div className='Searchbar_comp'>
                     <input type="search" placeholder='Search here' className='search_bar'       onChange={handleInputChange}
@@ -159,17 +159,17 @@ const Profile = ({setKyc, setClicked}) => {
                     <img src={searchicon} alt="" />
                 </div>
 
-                <div className='Calenderbar'>
-                    <img className='calenderimg' src={calender} alt="" />
-                    <div className='calendertext'>
-                        <h1>Filter Periode</h1>
-                        <p>4 June 2023 - 4 Jan 2024</p>
-                    </div>
-                    <img className='calenderarrowimg' src={downarrow} alt="" />
-                </div>
-            </div>
+        <div className="Calenderbar">
+          <img className="calenderimg" src={calender} alt="" />
+          <div className="calendertext">
+            <h1>Filter Periode</h1>
+            <p>4 June 2023 - 4 Jan 2024</p>
+          </div>
+          <img className="calenderarrowimg" src={downarrow} alt="" />
+        </div>
+      </div>
 
-            {/* table header section end */}
+      {/* table header section end */}
 
             <div className='bottom_screen'>
                 <table className='profile_table'>
@@ -223,4 +223,4 @@ const Profile = ({setKyc, setClicked}) => {
     )
 }
 
-export default Profile
+export default Profile;
