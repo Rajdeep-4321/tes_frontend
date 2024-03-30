@@ -195,6 +195,14 @@
 
 }
 
+.profilechangeNegative {
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    color: #FF3B30;
+
+
+}
+
 .profile_lastprice {
     font-size: 14px;
     font-weight: 600;
@@ -516,7 +524,11 @@
 
 
     }
+    .profilechangeNegative {
+        font-size: 12px;
 
+
+    }
 
     .profile_nextpage_btn {
         margin-right: 30px;
@@ -741,6 +753,13 @@
     }
 
     .profilechange {
+        font-size: 10px;
+
+
+    }
+
+    
+    .profilechangeNegative {
         font-size: 10px;
 
 
