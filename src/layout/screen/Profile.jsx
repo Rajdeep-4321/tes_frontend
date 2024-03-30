@@ -188,7 +188,7 @@ const Profile = ({setKyc, setClicked}) => {
                     <tbody className='profile_tbody' onClick = {handleClickedButton}>
                         {stocks.map((TableData, index) => (<tr key={index}>
                             <td className='rankcircle'><button>{"#"+(index + 1)}</button></td>
-                            <td className='profile_shares' ><button className='circle_table'>S</button> <span>{TableData.companyName}</span></td>
+                            <td className='profile_shares' ><button className='circle_table'>{TableData.companyName[0]}</button> <span>{TableData.companyName}</span></td>
                             <td className='profile_lastprice'>{"$" + TableData.latestPrice}</td>
                             <td className={TableData.changePercent < 0 ? 'profilechangeNegative' : 'profilechange'}>{String(TableData.changePercent).replace('-', '') + "%"}</td>
                             <td className='profilevolume'>{"$" +TableData.volume}</td>
