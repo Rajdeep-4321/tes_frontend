@@ -83,7 +83,12 @@
     display: flex;
     margin-top: 20px;
     bottom: 20px;
+    cursor: pointer; /* Change cursor to pointer on hover */
 
+}
+.leftboxcontent:hover {
+    /* Add hover styles here */
+    background-color: lightgray; /* For example, change background color */
 }
 
 .psbtn {

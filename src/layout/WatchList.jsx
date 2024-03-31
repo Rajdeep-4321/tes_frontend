@@ -23,7 +23,7 @@ const WatchList = () => {
         <Header heading="Watch List"></Header>
         <div className="divisioncomp">
           <Sidebar screenName="Watch List" />
-          <Profile_Second />
+          <ComingSoon/>
         </div>
       </body>
     </>

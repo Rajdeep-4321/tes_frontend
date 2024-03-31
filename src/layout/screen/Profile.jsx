@@ -15,10 +15,49 @@ import last from '../../assets/Last.svg'
 import axios from 'axios'
 
 
-const Profile = ({setKyc, setClicked}) => {
+const Profile = ({setKyc, setClicked, setDetails, setParentStockData}) => {
 
     const [stocks, setStocks] = useState([]);
     const [stockAllData, setStockAllData] = useState([]);
+    const [startIndex, setStartIndex] = useState(1);
+    // const [loadingTimeData, setLoadingTimeData] = useState([]);
+
+    const itemsPerPage = 10;
+
+const [currentPage, setCurrentPage] = useState(1);
+const [totalPages, setTotalPages] = useState(1);
+const [pageButtons, setPageButtons] = useState([]);
+
+const handlePageChange = (page) => {
+    console.log("page", page);  
+
+    if(page < 1 || page > totalPages){
+        return
+    }
+  setCurrentPage(page);
+  generatePageButtons();
+    setStartIndex((page - 1) * itemsPerPage);
+
+
+  
+};
+
+
+// Generate page buttons dynamically
+  const generatePageButtons = () => {
+    const buttons = [];
+    setPageButtons(buttons);
+
+
+for (let i = 1; i <= totalPages; i++) {
+    console.log("button");
+    buttons.push( i
+  );
+}
+setPageButtons(buttons);
+console.log("58 stock data", stockAllData.slice(0,10));
+
+  }
 
 
 
@@ -26,18 +65,34 @@ const Profile = ({setKyc, setClicked}) => {
         setKyc(false); 
       };
 
-      const handleClickedButton=() =>{
+      const handleClickedButton=(data) =>{
+        setDetails(data);
         setClicked(true);
+
       }
 
 
       useEffect(() => {
         const fetchStocks = async () => {
+            let loadingTimeData = [];
           try {
-            const response = await axios.get('https://api.iex.cloud/v1/data/CORE/STOCK_COLLECTION/list?collectionName=mostactive&token=pk_87153c5f922e4b51b66372381d1ec6aa'); // Endpoint to fetch stocks from backend
-            setStockAllData(response.data);
-            console.log("stockAllData", stockAllData)
-            setStocks(response.data);
+            const categoryList = ["mostactive" , "gainers" , "losers" , "iexvolume" , "iexpercent" ];
+            for(let i = 0; i < categoryList.length; i++){
+                const response = await axios.get(`https://api.iex.cloud/v1/data/CORE/STOCK_COLLECTION/list?collectionName=${categoryList[i]}&token=pk_87153c5f922e4b51b66372381d1ec6aa`);
+                console.log("response", response.data);
+                let previousData = loadingTimeData;
+                console.log("previousData", previousData    );
+                loadingTimeData = loadingTimeData.concat(response.data);            }
+            console.log("loadingTimeData", loadingTimeData);
+            setStockAllData(loadingTimeData);
+            setStocks(loadingTimeData);
+            setTotalPages(Math.ceil(loadingTimeData.length / itemsPerPage));
+            generatePageButtons();
+            setParentStockData(loadingTimeData.slice(0,10));
+            setCurrentPage(1);
+              setStartIndex((1) * itemsPerPage);
+
+
           } catch (error) {
             console.error('Error fetching stocks:', error);
           }
@@ -185,9 +240,11 @@ const Profile = ({setKyc, setClicked}) => {
                         </tr>
 
                     </thead>
-                    <tbody className='profile_tbody' onClick = {handleClickedButton}>
-                        {stocks.map((TableData, index) => (<tr key={index}>
-                            <td className='rankcircle'><button>{"#"+(index + 1)}</button></td>
+                    <tbody className='profile_tbody' >
+                        {stocks.slice(startIndex, startIndex + itemsPerPage).map((TableData, index) => (
+                        <tr key={index} onClick={() => handleClickedButton(TableData)}>
+                            <td className='rankcircle'><button>{"#"+(startIndex + index + 1)}</button></td>
+
                             <td className='profile_shares' ><button className='circle_table'>{TableData.companyName[0]}</button> <span>{TableData.companyName}</span></td>
                             <td className='profile_lastprice'>{"$" + TableData.latestPrice}</td>
                             <td className={TableData.changePercent < 0 ? 'profilechangeNegative' : 'profilechange'}>{String(TableData.changePercent).replace('-', '') + "%"}</td>
@@ -197,7 +254,9 @@ const Profile = ({setKyc, setClicked}) => {
                             <td><img src = {profilemore} alt="" className='profilemore ' /></td>
 
 
-                        </tr>))}
+                        </tr>
+                        
+                        ))}
                     </tbody>
                 </table>
 
@@ -205,17 +264,25 @@ const Profile = ({setKyc, setClicked}) => {
 
             </div>
             <div className='profile_nextpage'>
-                <div><p className=''>Showing 10 from 160 data</p></div>
+                <div><p className=''>Showing {stockAllData.length > 0 ? itemsPerPage + (startIndex): 0} from {stockAllData.length} data</p></div>
                 <div className='profile_nextpage_btn'>
-                    <button className='profile_nextpage_btn_btn'><img src={first} alt="first" /></button>
-                    <button className='profile_nextpage_btn_btn'><img src={prev} alt="prev" /></button>
-                    <button className='profile_nextpage_btn_black_btn'>1</button>
-                    <button className='profile_nextpage_btn_btn'>2</button>
-                    <button className='profile_nextpage_btn_btn' > 3</button>
-                    <button className='tablemore'><img src={tablemore} alt="" /></button>
-                    <button className='profile_nextpage_btn_btn'>10</button>
-                    <button className='profile_nextpage_btn_btn'><img src={next} alt="" /></button>
-                    <button className='profile_nextpage_btn_btn'><img src={last} alt="" /></button>
+                <>
+    {/* Pagination controls */}
+    <button className='profile_nextpage_btn_btn' onClick={() => handlePageChange(1)}><img src={first} alt="first" /></button>
+    <button className='profile_nextpage_btn_btn' onClick={() => handlePageChange(currentPage - 1)}><img src={prev} alt="prev" /></button>
+    {pageButtons.map((page, index) => {
+
+        return (
+            <button key={page} className={currentPage === index + 1 ? 'profile_nextpage_btn_black_btn' : 'profile_nextpage_btn_btn'} onClick={() => handlePageChange(index + 1)}>
+            {page}
+            </button>
+        );
+        
+    })}
+    {/* {pageButtons} */}
+    <button className='profile_nextpage_btn_btn' onClick={() => handlePageChange(currentPage + 1)}><img src={next} alt="" /></button>
+    <button className='profile_nextpage_btn_btn' onClick={() => handlePageChange(totalPages)}><img src={last} alt="" /></button>
+  </>
                 </div>
             </div>
 
