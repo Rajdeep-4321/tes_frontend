@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./screen/Profile";
 import "./screen/Kyc";
+import "./screen/portfolio.css";
 import searchicon from "../assets/searchicon.svg";
 import calender from "../assets/calender.svg";
 import downarrow from "../assets/downarrow.svg";
@@ -131,18 +132,24 @@ const Portfolio = () => {
                       </td>
                       <td className="profile_lastprice">{data.leverage}</td>
                       <td className="profilechange">{data.change}</td>
+                      
                       <td className="profilevolume">{data.volume}</td>
-                      <td>{data.lostPrice}</td>
-                      <td
-                        style={{ background: "#f5f5f5", fontFamily: "Poppins" }}
-                      >
-                        {data.stopLoss}
+                      <td>
+                    <div className='main-container'>
+                      <div className='frame-1'>
+                        <span className='sl'>SL</span>
+                        <span className='multiple'>Multiple</span>
+                      </div>
+                    </div>
                       </td>
 
-                      <td
-                        style={{ background: "#f5f5f5", fontFamily: "Poppins" }}
-                      >
-                        {data.takeProfit}
+                      <td>
+                    <div className='main-container'>
+                      <div className='frame-1'>
+                        <span className='sl'>SL</span>
+                        <span className='multiple'>Multiple</span>
+                      </div>
+                    </div>
                       </td>
                       <td
                       // style={{ background: "#f5f5f5", fontFamily: "Poppins" }}

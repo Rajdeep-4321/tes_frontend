@@ -16,6 +16,8 @@ const ExploreMarkets = () => {
   const [darkmode, setDarkmode] = useState(false);
   const [kyc, setKyc] = useState(true);
   const [isClicked, setClicked] = useState(false);
+  const [details, setDetails] = useState({});
+  const [allStockData, setAllStockData] = useState([]);
 
   return (
     <>
@@ -30,11 +32,11 @@ const ExploreMarkets = () => {
           {/* <div className='ProfileCom'><Profile_Second/></div> */}
           {!isClicked ? (
             <div className="ProfileCom">
-              <Profile setKyc={setKyc} setClicked={setClicked} />
+              <Profile setKyc={setKyc} setClicked={setClicked}  setDetails={setDetails} setParentStockData = {setAllStockData}/>
             </div>
           ) : (
             <div className="ProfileCom">
-              <Profile_Second />
+              <Profile_Second details = {details} allStockData={allStockData} />
             </div>
           )}
           {/* <div className='ProfileCom'  ><Profile setKyc={setKyc}/></div> */}

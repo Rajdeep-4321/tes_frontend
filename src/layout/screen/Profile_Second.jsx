@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Profile_second.css'
 import graph from '../../assets/profilesecondgraph.svg'
 import searchicon from '../../assets/searchicon.svg'
@@ -11,8 +11,32 @@ import ps_frame from '../../assets/psframe.svg'
 import psbtnimg from '../../assets/psbtnimg.svg'
 import psbtnimgone from '../../assets/psbtnimgone.svg'
 import showmore from '../../assets/showmore.svg'
+import { all } from 'axios'
 
-const Profile_Second = () => {
+const Profile_Second = ({details, allStockData}) => {
+    console.log("allStockData", details  );
+    const [stockDetails, setStockDetails] = useState(details);
+    console.log("stockDetails", stockDetails);
+
+
+    // useEffect(() => {
+    //    setStockDetails(details);
+    //   }, [details]);
+
+    const onChange = (stock) => {
+        console.log("stock", stock);    
+        setStockDetails(stock);
+    };
+
+    function formatNumberWithK(num) {
+        if (num >= 1000 && num < 1000000) {
+            return (num / 1000).toFixed(0) + 'K';
+        } else if (num >= 1000000) {
+            return (num / 1000000).toFixed(0) + 'M';
+        } else {
+            return num.toString();
+        }
+    }
     return (
         <>
             <section className='pssection'>
@@ -21,10 +45,13 @@ const Profile_Second = () => {
 
                         <div className='headertext'>
                             <h1 className='marketPreviews'>Market Previews</h1>
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
+                           {allStockData.map((stock, index) => {
+
+                            return (
+                                <div className='leftboxcontent' onClick = {() => onChange(stock)}>
+                                <button className='psbtn'>{stock.companyName[0]}</button>
                                 <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
+                                    <h1 className='psstock'>{stock.companyName.split(' ')[0]}</h1>
                                     <p className='psmonth'>February</p>
                                 </div>
                                 <div className='psgraphimg'>
@@ -36,191 +63,12 @@ const Profile_Second = () => {
                                     <p>1,24%</p>
                                 </div>
                             </div>
+                            )
+                           })}
 
 
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
+                       
 
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
-
-
-                            <div className='leftboxcontent'>
-                                <button className='psbtn'>S</button>
-                                <div className='pstext'>
-                                    <h1 className='psstock'>Stock 1</h1>
-                                    <p className='psmonth'>February</p>
-                                </div>
-                                <div className='psgraphimg'>
-                                    <img src={graph} alt="" />
-                                </div>
-
-                                <div className='psamount'>
-                                    <h1>120.45</h1>
-                                    <p>1,24%</p>
-                                </div>
-                            </div>
 
                          
                         </div>
@@ -234,9 +82,9 @@ const Profile_Second = () => {
                     <div className='psrightbox'>
                         <div className='rgstock'>
 
-                            <button className='psrgbtn'>S</button>
+                            <button className='psrgbtn'>{stockDetails.companyName != null ? stockDetails.companyName[0] : ""}</button>
                             <div className='psrgtext'>
-                                <p className='psrgmonth'>Stock 2</p>
+                                <p className='psrgmonth'>{stockDetails.companyName}</p>
                                 <h1 className='psrgstock'>STC / USD</h1>
                             </div>
                         </div>
@@ -245,7 +93,7 @@ const Profile_Second = () => {
                         <div className="markprice">
                             <p>Mark Price</p>
                             <div className='markpricediv'>
-                                <h1>148.42</h1>
+                                <h1>{stockDetails.latestPrice}</h1>
                                 <h2>-3.28%</h2>
                             </div>
                         </div>
@@ -260,7 +108,7 @@ const Profile_Second = () => {
                         <div className="psline"></div>
                         <div className="volume">
                             <p>Volume</p>
-                            <h1>104k</h1>
+                            <h1>{formatNumberWithK(stockDetails.volume)}</h1>
                         </div>
                         <div className="psline"></div>
 
@@ -275,7 +123,7 @@ const Profile_Second = () => {
                     <div className='psrightbox2'>
                         <div className='psrightbox2header'>
                             <div className='psrgboxtext'>
-                                <p className='psrgmonth'>Stock 2</p>
+                                <p className='psrgmonth'>{ !details?.companyName ? "Stock 1":details?.companyName }</p>
                                 <h1 className='psrgstock'>STC / USD</h1>
 
                             </div>
