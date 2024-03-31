@@ -18,7 +18,7 @@ const Profile_Second = () => {
             <section className='pssection'>
                 <div className='psleft'>
                     <div className='psleftbox'>
-{/* jaydeep */}
+
                         <div className='headertext'>
                             <h1 className='marketPreviews'>Market Previews</h1>
                             <div className='leftboxcontent'>
