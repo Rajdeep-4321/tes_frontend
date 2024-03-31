@@ -280,7 +280,7 @@ input:checked+.slider:before {
 }
 
 .sidenav {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     flex-direction: column;
     height: 336px;
