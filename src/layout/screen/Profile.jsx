@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect, useState } from 'react'
 import './Profile.css'
 import searchicon from '../../assets/searchicon.svg'
 import calender from '../../assets/calender.svg'
@@ -12,9 +12,15 @@ import prev from '../../assets/Prev.svg'
 import tablemore from '../../assets/dateprofilenextpg.svg'
 import next from '../../assets/Next.svg'
 import last from '../../assets/Last.svg'
+import axios from 'axios'
 
 
 const Profile = ({setKyc, setClicked}) => {
+
+    const [stocks, setStocks] = useState([]);
+    const [stockAllData, setStockAllData] = useState([]);
+
+
 
     const handleButtonClick = () => {
         setKyc(false); 
@@ -23,6 +29,22 @@ const Profile = ({setKyc, setClicked}) => {
       const handleClickedButton=() =>{
         setClicked(true);
       }
+
+
+      useEffect(() => {
+        const fetchStocks = async () => {
+          try {
+            const response = await axios.get('https://api.iex.cloud/v1/data/CORE/STOCK_COLLECTION/list?collectionName=mostactive&token=pk_87153c5f922e4b51b66372381d1ec6aa'); // Endpoint to fetch stocks from backend
+            setStockAllData(response.data);
+            console.log("stockAllData", stockAllData)
+            setStocks(response.data);
+          } catch (error) {
+            console.error('Error fetching stocks:', error);
+          }
+        };
+    
+        fetchStocks();
+      }, []);
     const TableData = [
         {
             rank: "#1",
@@ -106,33 +128,48 @@ const Profile = ({setKyc, setClicked}) => {
 
     ]
 
+    const handleInputChange = (event) => {
+        console.log(event.target.value);
+        if(event.target.value === '' || !event.target.value){
+            console.log('empty', stockAllData);
+            setStocks(stockAllData);
+        
+        }else{
+            const filteredData = stockAllData.filter((item) => {
+                return item.companyName.toLowerCase().includes(event.target.value.toLowerCase());
+            });
+            setStocks(filteredData);
+        }
+      };
 
-    return (
-        <>
-            {/* table header section */}
-            <div className='Head_screen'>
-                <div className='Head_screen_button'>
-                    <button className='shares'>Shares</button>
-                    <button className='Commodities'>Commodities</button>
-                    <button className='crypto'>Crypto</button>
-                </div>
+
+  return (
+    <>
+      {/* table header section */}
+      <div className="Head_screen">
+        <div className="Head_screen_button">
+          <button className="shares">Shares</button>
+          <button className="Commodities">Commodities</button>
+          <button className="crypto">Crypto</button>
+        </div>
 
                 <div className='Searchbar_comp'>
-                    <input type="search" placeholder='Search here' className='search_bar' />
+                    <input type="search" placeholder='Search here' className='search_bar'       onChange={handleInputChange}
+/>
                     <img src={searchicon} alt="" />
                 </div>
 
-                <div className='Calenderbar'>
-                    <img className='calenderimg' src={calender} alt="" />
-                    <div className='calendertext'>
-                        <h1>Filter Periode</h1>
-                        <p>4 June 2023 - 4 Jan 2024</p>
-                    </div>
-                    <img className='calenderarrowimg' src={downarrow} alt="" />
-                </div>
-            </div>
+        <div className="Calenderbar">
+          <img className="calenderimg" src={calender} alt="" />
+          <div className="calendertext">
+            <h1>Filter Periode</h1>
+            <p>4 June 2023 - 4 Jan 2024</p>
+          </div>
+          <img className="calenderarrowimg" src={downarrow} alt="" />
+        </div>
+      </div>
 
-            {/* table header section end */}
+      {/* table header section end */}
 
             <div className='bottom_screen'>
                 <table className='profile_table'>
@@ -141,7 +178,7 @@ const Profile = ({setKyc, setClicked}) => {
                         <tr className='profile_tr'>
                             <td className='rank' >Rank <img src={tableicon} alt="" /></td>
                             <td>Shares<img src={tableicon} alt="" /></td>
-                            <td>Lost Price<img src={tableicon} alt="" /></td>
+                            <td>Last Price<img src={tableicon} alt="" /></td>
                             <td>Change (24)<img src={tableicon} alt="" /></td>
                             <td>volume (24) <img src={tableicon} alt="" /></td>
                             <td>graph <img src={tableicon} alt="" /></td>
@@ -149,12 +186,12 @@ const Profile = ({setKyc, setClicked}) => {
 
                     </thead>
                     <tbody className='profile_tbody' onClick = {handleClickedButton}>
-                        {TableData.map(TableData => (<tr key={TableData.rank}>
-                            <td className='rankcircle'><button>{TableData.rank}</button></td>
-                            <td className='profile_shares' ><button className='circle_table'>S</button> <span>{TableData.shares}</span></td>
-                            <td className='profile_lastprice'>{TableData.lastprice}</td>
-                            <td className='profilechange'>{TableData.change}</td>
-                            <td className='profilevolume'>{TableData.volume}</td>
+                        {stocks.map((TableData, index) => (<tr key={index}>
+                            <td className='rankcircle'><button>{"#"+(index + 1)}</button></td>
+                            <td className='profile_shares' ><button className='circle_table'>{TableData.companyName[0]}</button> <span>{TableData.companyName}</span></td>
+                            <td className='profile_lastprice'>{"$" + TableData.latestPrice}</td>
+                            <td className={TableData.changePercent < 0 ? 'profilechangeNegative' : 'profilechange'}>{String(TableData.changePercent).replace('-', '') + "%"}</td>
+                            <td className='profilevolume'>{"$" +TableData.volume}</td>
                             <td className='graphimg' ><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/257d1f5b-a6bb-4a50-a714-cf2292c048f3?apiKey=382c3475e0c0434aab50e06e7c6506ec&" alt="" /></td>
                             <td><button className='profile_buy_sell' onClick= { handleButtonClick   }>Buy <img src={buyicon} alt=""  /></button> <button className='profile_buy_sell profile_sell' onClick= { handleButtonClick   }>Sell  <img src={sellicon} alt="" /></button> <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/96…ea138cf2?apiKey=382c3475e0c0434aab50e06e7c6506ec&" alt="" /> </td>
                             <td><img src = {profilemore} alt="" className='profilemore ' /></td>
@@ -186,4 +223,4 @@ const Profile = ({setKyc, setClicked}) => {
     )
 }
 
-export default Profile
+export default Profile;
