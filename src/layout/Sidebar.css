@@ -15,7 +15,7 @@
     background-color: #E9E9E9;
 } */
 
-.kycshow{
+.kycshow {
     position: absolute;
     width: 100%;
     background-color: rgba(93, 89, 89, 0.456);
@@ -23,7 +23,7 @@
     z-index: 30;
 }
 
-.kychidden{
+.kychidden {
     display: none;
 }
 
@@ -189,7 +189,7 @@ input:checked+.slider:before {
     border-radius: 2px;
 }
 
-.notificationimg{
+.notificationimg {
     height: 31px;
     width: 31px;
 }
@@ -287,7 +287,7 @@ input:checked+.slider:before {
     width: 301px;
 }
 
-.navitem {
+/* .navitem {
     display: flex;
     align-items: center;
     list-style: none;
@@ -295,7 +295,7 @@ input:checked+.slider:before {
     height: 59px;
     gap: 20px;
     text-decoration: none;
-}
+} */
 
 .navitem {
     display: flex;
@@ -305,6 +305,7 @@ input:checked+.slider:before {
     height: 59px;
     gap: 20px;
     text-decoration: none;
+
 }
 
 .navitemSelected {
@@ -318,7 +319,8 @@ input:checked+.slider:before {
     background-color: #E9E9E9;
     border-right: 4px solid black;
     border-inline-start-color: #000000;
-  
+
+
 }
 
 .navitem:hover {
@@ -451,7 +453,6 @@ input:checked+.slider:before {
 
 
     .headermenuicon h1 {
-
         font-size: 18px;
 
     }
@@ -471,10 +472,7 @@ input:checked+.slider:before {
     }
 
     .profileheader span {
-
         font-size: 10px;
-
-
     }
 
 
@@ -505,10 +503,11 @@ input:checked+.slider:before {
         transform: translateX(18px);
     }
 
-    .notificationimg{
+    .notificationimg {
         height: 25px;
         width: 25px;
     }
+
     .notification .badge {
         top: -5px;
         right: -3px;
@@ -520,22 +519,22 @@ input:checked+.slider:before {
         font-size: 10px;
     }
 
-   
+
     .line {
         height: 28px;
         width: 1px;
     }
 
     .darkmodetext {
-       
+
         font-size: 14px;
-       
+
     }
 
     .sideHeader {
         height: 104px;
         width: 200px;
-  
+
     }
 
     .sidebarlogo {
@@ -547,7 +546,7 @@ input:checked+.slider:before {
         /* background-color: royalblue; */
     }
 
-   
+
     #sidebarlogoimg {
         width: 28px;
         height: 20px;
@@ -555,7 +554,7 @@ input:checked+.slider:before {
 
     .sidelogoName {
         font-size: 14px;
-     
+
     }
 
     .sidenav {
@@ -565,17 +564,34 @@ input:checked+.slider:before {
 
     .navitem {
         width: 192px;
-   
+
+    }
+
+    .navitemSelected {
+        width: 188px;
+    }
+
+    .navitemSelected:hover {
+        width: 188px;
     }
 
     .navitem:hover {
         width: 188px;
     }
 
-    .navitem span {
- 
+
+    .navitemSelected span {
         font-size: 14px;
-      
+    }
+
+    .navitem span {
+        font-size: 14px;
+    }
+
+    .navitemSelected img {
+        width: 18px;
+        height: 18px;
+        margin-left: 25px;
     }
 
     .navitem img {
@@ -635,7 +651,7 @@ input:checked+.slider:before {
 
 
 
-/* responsive 800 */
+/* responsive 900 */
 
 @media only screen and (max-width:900px) {
 
@@ -647,7 +663,7 @@ input:checked+.slider:before {
 
     .sidemainheader {
         height: 80px;
-      
+
     }
 
     .headermenuicon {
@@ -711,10 +727,11 @@ input:checked+.slider:before {
         transform: translateX(12px);
     }
 
-    .notificationimg{
+    .notificationimg {
         height: 22px;
         width: 22px;
     }
+
     .notification .badge {
         top: -5px;
         right: -3px;
@@ -726,22 +743,22 @@ input:checked+.slider:before {
         font-size: 9px;
     }
 
-   
+
     .line {
         height: 26px;
         width: 1px;
     }
 
     .darkmodetext {
-       
+
         font-size: 10px;
-       
+
     }
 
     .sideHeader {
         height: 80px;
         width: 160px;
-  
+
     }
 
     .sidebarlogo {
@@ -753,7 +770,7 @@ input:checked+.slider:before {
         /* background-color: royalblue; */
     }
 
-   
+
     #sidebarlogoimg {
         width: 22px;
         height: 20px;
@@ -761,7 +778,7 @@ input:checked+.slider:before {
 
     .sidelogoName {
         font-size: 10px;
-     
+
     }
 
     .sidenav {
@@ -770,25 +787,43 @@ input:checked+.slider:before {
     }
 
     .navitem {
-        width:132px;
-        gap:5px;
-   
+        width: 132px;
+        gap: 5px;
+
+    }
+
+    .navitemSelected {
+        width: 132px;
+        gap: 5px;
+
+    }
+
+    .navitemSelected:hover {
+        width: 132px;
     }
 
     .navitem:hover {
-        width:128px;
+        width: 132px;
     }
 
     .navitem span {
- 
         font-size: 12px;
-      
+    }
+    .navitemSelected span {
+        font-size: 12px;
     }
 
+    .navitemSelected img {
+        width: 14px;
+        height: 14px;
+        margin-left: 10px;
+    }
     .navitem img {
         width: 14px;
         height: 14px;
         margin-left: 5px;
+        margin-left: 10px;
+
     }
 
     .bottom_nav {
@@ -809,7 +844,7 @@ input:checked+.slider:before {
     .bnavitem img {
         width: 14px;
         height: 14px;
-        margin-left: 5px;
+        margin-left: 10px;
     }
 
     .categoryname {
