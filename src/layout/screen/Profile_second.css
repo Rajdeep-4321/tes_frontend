@@ -5,6 +5,7 @@
     padding: 0;
     /* box-sizing: border-box; */
 
+
 }
 
 .pssection {
@@ -83,12 +84,17 @@
     display: flex;
     margin-top: 20px;
     bottom: 20px;
-    cursor: pointer; /* Change cursor to pointer on hover */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+    padding: 0px 10px;
+    /* add Padding */
 
 }
+
 .leftboxcontent:hover {
     /* Add hover styles here */
-    background-color: lightgray; /* For example, change background color */
+    background-color: lightgray;
+    /* For example, change background color */
 }
 
 .psbtn {
@@ -98,7 +104,8 @@
     border: none;
     background-color: #374C98;
     color: white;
-    margin-left: 20px;
+
+    /* margin-left: 20px; */
 }
 
 .pstext {
@@ -106,8 +113,9 @@
     flex-direction: column;
     margin-left: 10px;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     gap: 5px;
+    width: 80px;
 
 }
 
@@ -156,7 +164,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 .showmorebox {
@@ -164,6 +172,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+
 }
 
 
@@ -181,6 +190,11 @@
     font-weight: 600;
     color: #000000;
     background-color: white;
+    cursor: pointer;
+}
+
+.showmore:hover {
+    background-color: #d1d1d1;
 }
 
 .rgstock button {
@@ -197,6 +211,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 20px;
 }
 
 .psrgtext {
@@ -332,7 +347,7 @@
 
 .psrightbox2header {
     /* background-color: red; */
-    width: 85%;
+    width: 100%;
     height: 56px;
     align-items: center;
     display: flex;
@@ -340,6 +355,10 @@
     margin-top: 20px;
     justify-content: space-between;
 
+}
+
+.psrgboxtext{
+    margin-left: 60px;
 }
 
 .psweektoday {
@@ -393,6 +412,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-right: 60px;
 }
 
 .psgraph2 {
@@ -401,7 +421,7 @@
 }
 
 .psgraph2 img {
-    width: 110%;
+    width: 100%;
 }
 
 
@@ -415,7 +435,8 @@
 }
 
 .ps3leftinside1 {
-    padding: 0 20px;
+    /* padding: 0 20px; */
+    margin-left: 20px;
     margin-top: 20px;
 }
 
@@ -441,7 +462,7 @@
 }
 
 .ps_frame img {
-    width: 500px;
+    width: 90%;
     margin-top: 20px;
 }
 
@@ -751,6 +772,7 @@ label::before {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    cursor: pointer;
 }
 
 .psbuy img {
@@ -773,9 +795,279 @@ label::before {
     justify-content: center;
     align-items: center;
     gap: 30px;
+    cursor: pointer;
 }
 
 .pssell img {
     height: 15px;
 }
 
+
+
+@media only screen and (max-width:1500px) {
+
+    .pstext {
+        width: 56px;
+    }
+
+    .psbtn {
+        height: 30px;
+        width: 30px;
+    }
+
+
+    .psstock {
+        font-size: 12px;
+
+    }
+
+    .psmonth {
+        font-size: 10px;
+
+    }
+
+
+    .psamount h1 {
+        font-size: 12px;
+
+    }
+
+    .psamount p {
+        font-size: 10px;
+
+    }
+
+
+
+    .showmore {
+        width: 70%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+
+    .rgstock button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+
+    }
+
+    .psgraph2 img {
+        width: 100%;
+    }
+
+    .ps_frame img {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+
+    .psrgtext h1 {
+        font-size: 14px;
+    }
+
+
+    .markpricediv h1 {
+        font-size: 14px;
+    }
+
+    .fundingrate h1{
+        font-size: 14px;
+    }
+
+    .volume h1{
+        font-size: 14px;
+    }
+
+    .pssearch input {
+        width: 130px;
+    }
+
+    .pssearch img {
+        margin-right: 0px;
+        height: 20px;
+    }
+
+    .psgetreport{
+        margin-right: 30px;
+    }
+
+    .psrgboxtext{
+        margin-left: 30px;
+    }
+
+    .psrgboxtext h1{
+        font-size: 14px;
+    }
+
+    .psgetreport{
+        height: 40px;
+        width: 125px;
+        font-size: 13px;
+    }
+
+    .ps3btn{
+        height: 36px;
+        width: 100px;
+    }
+
+
+    .ps3btn button{
+        height: 25px;
+        width: 25px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .ps3btn p{
+        font-size: 12px;
+    }
+
+
+
+
+
+}
+
+
+@media only screen and (max-width:1200px) {
+
+    .pstext {
+        width: 56px;
+    }
+
+    .psbtn {
+        height: 30px;
+        width: 30px;
+    }
+
+
+    .psstock {
+        font-size: 12px;
+
+    }
+
+    .psmonth {
+        font-size: 10px;
+
+    }
+
+
+    .psamount h1 {
+        font-size: 12px;
+
+    }
+
+    .psamount p {
+        font-size: 10px;
+
+    }
+
+
+
+    .showmore {
+        width: 70%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+
+    .rgstock button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin-left: 10px;
+
+    }
+
+    .psgraph2 img {
+        width: 100%;
+    }
+
+    .ps_frame img {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+
+    .psrgtext h1 {
+        font-size: 12px;
+    }
+    .psrgtext p {
+        font-size: 10px;
+    }
+
+
+    .markpricediv h1 {
+        font-size: 12px;
+    }
+
+    .markprice  p {
+        font-size: 10px;
+    }
+
+    .fundingrate h1{
+        font-size: 12px;
+    }
+
+    .fundingrate p{
+        font-size: 10px;
+    }
+
+    .volume h1{
+        font-size: 12px;
+    }
+
+    .volume p{
+        font-size: 10px;
+    }
+
+    .pssearch input {
+        width: 130px;
+        font-size: 14px;
+    }
+
+    .pssearch img {
+        margin-right: 10px;
+    }
+
+    .psgetreport{
+        margin-right: 30px;
+    }
+
+    .psrgboxtext{
+        margin-left: 30px;
+    }
+
+    .psrgboxtext h1{
+        font-size: 14px;
+    }
+
+    .psgetreport{
+        height: 40px;
+        width: 125px;
+        font-size: 13px;
+    }
+
+    .ps3btn{
+        height: 36px;
+        width: 100px;
+    }
+
+
+    .ps3btn button{
+        height: 25px;
+        width: 25px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .ps3btn p{
+        font-size: 12px;
+    }
+
+
+
+
+}

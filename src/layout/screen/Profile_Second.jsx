@@ -29,24 +29,24 @@ const Profile_Second = ({details, allStockData}) => {
     };
 
     function formatNumberWithK(num) {
-        try{
-            if (num >= 1000 && num < 1000000) {
-                return (num / 1000).toFixed(0) + 'K';
-            } else if (num >= 1000000) {
-                return (num / 1000000).toFixed(0) + 'M';
-            } else {
-                return num.toString();
-            }
-        }catch(e){
-            return "40 K"
+      try{
+        if (num >= 1000 && num < 1000000) {
+            return (num / 1000).toFixed(0) + 'K';
+        } else if (num >= 1000000) {
+            return (num / 1000000).toFixed(0) + 'M';
+        } else {
+            return num.toString();
         }
+      }catch(e){
+        return "40K"
+      }
     }
     return (
         <>
             <section className='pssection'>
                 <div className='psleft'>
                     <div className='psleftbox'>
-{/* jaydeep */}
+
                         <div className='headertext'>
                             <h1 className='marketPreviews'>Market Previews</h1>
                            {allStockData.map((stock, index) => {
