@@ -90,7 +90,7 @@ console.log("58 stock data", stockAllData.slice(0,10));
             generatePageButtons();
             setParentStockData(loadingTimeData.slice(0,10));
             setCurrentPage(1);
-              setStartIndex((1) * itemsPerPage);
+            handlePageChange(1);
 
 
           } catch (error) {
