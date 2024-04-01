@@ -29,6 +29,7 @@ const Profile_Second = ({details, allStockData}) => {
     };
 
     function formatNumberWithK(num) {
+      try{
         if (num >= 1000 && num < 1000000) {
             return (num / 1000).toFixed(0) + 'K';
         } else if (num >= 1000000) {
@@ -36,6 +37,9 @@ const Profile_Second = ({details, allStockData}) => {
         } else {
             return num.toString();
         }
+      }catch(e){
+        return "40K"
+      }
     }
     return (
         <>
